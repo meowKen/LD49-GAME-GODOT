@@ -29,7 +29,7 @@ animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 11 ) ],
 "loop": false,
@@ -49,25 +49,27 @@ animations = [ {
 
 [node name="World" type="Node"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="RemoveMeInTheEnd" type="Node" parent="."]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="RemoveMeInTheEnd"]
 position = Vector2( 32, 160 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveMeInTheEnd/KinematicBody2D"]
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
-[node name="Animation" type="AnimatedSprite" parent="KinematicBody2D"]
+[node name="Animation" type="AnimatedSprite" parent="RemoveMeInTheEnd/KinematicBody2D"]
 frames = SubResource( 2 )
 animation = "jump_down"
 frame = 2
 speed_scale = 2.0
 playing = true
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="RemoveMeInTheEnd"]
 z_index = -4
 tile_set = ExtResource( 21 )
 cell_size = Vector2( 32, 32 )
