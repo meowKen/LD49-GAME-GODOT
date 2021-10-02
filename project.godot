@@ -25,11 +25,11 @@ Orchestrator="*res://Scripts/Context/orchestrator.gd"
 
 [display]
 
-window/size/width=640
-window/size/height=360
+window/size/width=318
+window/size/height=180
 window/size/test_width=1024
-window/size/test_height=760
-window/stretch/mode="viewport"
+window/size/test_height=576
+window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
 [editor_plugins]

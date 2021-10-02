@@ -1,31 +1,57 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Sprites/Player/topdown/omnious01_down_f2.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Player/topdown/omnious01_down_f3.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Player/topdown/omnious01_down_f1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_idle_right.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_idle_up.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_walk_down_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_walk_up_1.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Movement/TopDownMovement.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_idle_down.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_walk_right_1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_walk_down_2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_walk_right_2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/EmitGreen/scientist_walk_up_2.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "idle",
+"name": "walk_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "down",
-"speed": 10.0
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 32.0
 
 [node name="EmitGreen" type="KinematicBody2D"]
-position = Vector2( -269.274, 223.766 )
+position = Vector2( 160, 96 )
 z_index = 1
 script = ExtResource( 5 )
 __meta__ = {
@@ -38,10 +64,11 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "idle"
+animation = "idle_right"
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )

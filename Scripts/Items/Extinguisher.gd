@@ -7,10 +7,12 @@ signal pick_me_up
 
 var player_in_range = false
 var item_name = "Extinguisher"
+var smoke_quantity = 1000
+onready var smoke = $Smoke
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	smoke.emitting = false;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,6 +22,13 @@ func _process(delta):
 		emit_signal("pick_me_up", self)
 	pass
 
+func _use():
+	if smoke_quantity > 0:
+		smoke.emitting = true
+		smoke_quantity -= 1
+
+func _stop_use():
+	smoke.emitting = false
 
 func _on_Area2D_body_entered(body):
 	player_in_range = true
