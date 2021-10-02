@@ -24,8 +24,12 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=3]
 radius = 32.0
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="EmitGreen" type="KinematicBody2D"]
+position = Vector2( 0, 91.0248 )
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7 )

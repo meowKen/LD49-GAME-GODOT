@@ -7,17 +7,19 @@ const ACCELERATION = 0.05
 const FRICTION = 0.1
 const JUMP_HEIGHT = 700
 
-var motion = Vector2()
+onready var _context = get_node("/root/Orchestrator")
 onready var _animation = $AnimatedSprite
+var motion = Vector2()
 var x_axis = 0
 var y_axis = 0
 
 func _process(delta):
-	if abs(motion.x) < 10 and abs(motion.y) < 10:
-		_animation.play("idle")
-	elif motion.y > 0:
-		_animation.play("down")
-	pass
+	if _context != null and _animation != null:
+		print(_context["global_id"])
+		if abs(motion.x) < 10 and abs(motion.y) < 10:
+			_animation.play("idle")
+		elif motion.y > 0:
+			_animation.play("down")
 
 func _physics_process(delta):
 	
@@ -44,4 +46,3 @@ func _physics_process(delta):
 		motion.y = lerp(motion.y, MAX_SPEED * y_axis, ACCELERATION)
 
 	motion = move_and_slide(motion)
-	pass

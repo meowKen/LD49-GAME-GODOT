@@ -19,6 +19,10 @@ quick_scenes/quick_run_shortcut=Object(InputEventKey,"resource_local_to_scene":f
 config/name="LD49-GAME-GODOT"
 run/main_scene="res://Scenes/Levels/topdown.tscn"
 
+[autoload]
+
+Orchestrator="*res://Scripts/Context/orchestrator.gd"
+
 [display]
 
 window/size/width=640
