@@ -2,7 +2,7 @@ tool
 extends KinematicBody2D
 
 const FLOOR_NORMAL = Vector2(0, -1)
-const MAX_SPEED = 300
+const MAX_SPEED = 600
 const ACCELERATION = 0.05
 const FRICTION = 0.1
 const JUMP_HEIGHT = 700
@@ -12,24 +12,28 @@ onready var _animation = $AnimatedSprite
 var motion = Vector2()
 var x_axis = 0
 var y_axis = 0
+var handled_item
 
 func _process(delta):
 	if _context != null and _animation != null:
-		print(_context["global_id"])
 		if abs(motion.x) < 10 and abs(motion.y) < 10:
 			_animation.play("idle")
 		elif motion.y > 0:
 			_animation.play("down")
 
 func _physics_process(delta):
-	
-	# check horizontal input
+	# check inputs
 	var right = int(Input.is_action_pressed("ui_right"))
 	var left = int(Input.is_action_pressed("ui_left"))
-	
 	var up = int(Input.is_action_pressed("ui_up"))
 	var down = int(Input.is_action_pressed("ui_down"))
+	var drop_item = int(Input.is_action_just_pressed("ui_drop_item"))
 
+	# Drop item if necessary
+	if drop_item:
+		handled_item = null
+
+	# Compute axises
 	x_axis = right - left
 	y_axis = down - up
 	
@@ -46,3 +50,11 @@ func _physics_process(delta):
 		motion.y = lerp(motion.y, MAX_SPEED * y_axis, ACCELERATION)
 
 	motion = move_and_slide(motion)
+
+	if handled_item != null:
+		var item_pos = self.position + Vector2(16, 16)
+		handled_item.set_position(item_pos)
+
+func _on_Extinguisher_pick_me_up(item):
+	print("J'ai pris l'extincteur")
+	handled_item = item

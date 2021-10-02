@@ -6,7 +6,8 @@
 [node name="PickItemTestScene" type="Node"]
 
 [node name="EmitGreen" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 192 )
-z_index = 1
+position = Vector2( 30.216, 140.525 )
 
 [node name="Extinguisher" parent="." instance=ExtResource( 2 )]
+
+[connection signal="pick_me_up" from="Extinguisher" to="EmitGreen" method="_on_Extinguisher_pick_me_up"]
