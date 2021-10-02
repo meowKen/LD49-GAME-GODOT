@@ -27,6 +27,9 @@ func _use():
 		smoke.emitting = true
 		smoke_quantity -= 1
 
+func reset():
+	smoke.emitting = false
+	z_index = 0
 func _stop_use():
 	smoke.emitting = false
 

@@ -55,6 +55,7 @@ func _determine_axises():
 func _determine_item_action():
 	# Drop item if necessary
 	if Input.is_action_just_pressed("ui_drop_item"):
+		handled_item.reset()
 		handled_item = null
 
 	# Use item if necessary
@@ -139,4 +140,3 @@ func _not_realy_moving():
 
 func _is_moving():
 	return abs(motion.x) != 0 or abs(motion.y) != 0
-
