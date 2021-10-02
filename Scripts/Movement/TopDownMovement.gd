@@ -1,3 +1,4 @@
+tool
 extends KinematicBody2D
 
 const FLOOR_NORMAL = Vector2(0, -1)
@@ -17,7 +18,6 @@ func _process(delta):
 	elif motion.y > 0:
 		_animation.play("down")
 	pass
-	print(motion)
 
 func _physics_process(delta):
 	
