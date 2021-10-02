@@ -25,7 +25,7 @@ animations = [ {
 radius = 32.0
 
 [node name="EmitGreen" type="KinematicBody2D"]
-position = Vector2( -127.376, 148.987 )
+position = Vector2( -269.274, 223.766 )
 z_index = 1
 script = ExtResource( 5 )
 __meta__ = {

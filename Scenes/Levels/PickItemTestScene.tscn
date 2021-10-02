@@ -6,8 +6,21 @@
 [node name="PickItemTestScene" type="Node"]
 
 [node name="EmitGreen" parent="." instance=ExtResource( 1 )]
-position = Vector2( 30.216, 140.525 )
+position = Vector2( 49.2919, 197.734 )
 
 [node name="Extinguisher" parent="." instance=ExtResource( 2 )]
+position = Vector2( 320, 213.734 )
+
+[node name="Extinguisher2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 416, 288 )
+
+[node name="Extinguisher3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 96 )
+
+[node name="Extinguisher4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 224, 64 )
 
 [connection signal="pick_me_up" from="Extinguisher" to="EmitGreen" method="_on_Extinguisher_pick_me_up"]
+[connection signal="pick_me_up" from="Extinguisher2" to="EmitGreen" method="_on_Extinguisher_pick_me_up"]
+[connection signal="pick_me_up" from="Extinguisher3" to="EmitGreen" method="_on_Extinguisher_pick_me_up"]
+[connection signal="pick_me_up" from="Extinguisher4" to="EmitGreen" method="_on_Extinguisher_pick_me_up"]

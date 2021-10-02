@@ -6,6 +6,7 @@ extends Sprite
 signal pick_me_up
 
 var player_in_range = false
+var item_name = "Extinguisher"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

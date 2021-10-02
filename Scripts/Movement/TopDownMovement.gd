@@ -27,12 +27,17 @@ func _physics_process(delta):
 	var left = int(Input.is_action_pressed("ui_left"))
 	var up = int(Input.is_action_pressed("ui_up"))
 	var down = int(Input.is_action_pressed("ui_down"))
-	var drop_item = int(Input.is_action_just_pressed("ui_drop_item"))
-
+	
 	# Drop item if necessary
-	if drop_item:
+	if Input.is_action_just_pressed("ui_drop_item"):
 		handled_item = null
 
+	# Use item if necessary
+	if Input.is_action_pressed("ui_select"):
+		if (handled_item != null):
+			print("using item " + handled_item.item_name)
+		else:
+			print("try using no item")
 	# Compute axises
 	x_axis = right - left
 	y_axis = down - up
@@ -56,5 +61,9 @@ func _physics_process(delta):
 		handled_item.set_position(item_pos)
 
 func _on_Extinguisher_pick_me_up(item):
-	print("J'ai pris l'extincteur")
-	handled_item = item
+	if handled_item == null:
+		print("Took the " + item.item_name)
+		handled_item = item
+	else:
+		print("Didn't took the " + item.item_name)
+		print("Already handling" + handled_item.item_name)
