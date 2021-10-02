@@ -15,7 +15,7 @@ func _ready():
 	smoke.emitting = false;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (Input.is_mouse_button_pressed(1)
 	and _pointer_is_on_sprite()
 	and player_in_range):
@@ -30,10 +30,10 @@ func _use():
 func _stop_use():
 	smoke.emitting = false
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	player_in_range = true
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	player_in_range = false
 
 func _pointer_is_on_sprite():
