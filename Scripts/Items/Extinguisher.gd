@@ -1,8 +1,5 @@
 extends Sprite
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 signal pick_me_up
 
 var player_in_range = false

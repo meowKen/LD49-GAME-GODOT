@@ -12,15 +12,18 @@ var LEFT_HAND_OFFSET = {
 	"left": Vector2(0, 8),
 	"right": Vector2(8, 5),
 }
-var current_left_hand_offset
 
 onready var _context = get_node("/root/Orchestrator")
 onready var _animation = $AnimatedSprite
+var current_left_hand_offset
 var motion = Vector2()
 var x_axis = 0
 var y_axis = 0
 var handled_item
 var handled_item_z_index = 0
+
+func _ready():
+	_context.set_player(self)
 
 func _physics_process(_delta):
 	_determine_axises()
