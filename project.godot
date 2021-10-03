@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "EmitGreen",
 "language": "GDScript",
 "path": "res://Scripts/Movement/TopDownMovement.gd"
+}, {
+"base": "Node2D",
+"class": "Fire",
+"language": "GDScript",
+"path": "res://Scripts/Items/Fire.gd"
 } ]
 _global_script_class_icons={
-"EmitGreen": ""
+"EmitGreen": "",
+"Fire": ""
 }
 
 [addons]
