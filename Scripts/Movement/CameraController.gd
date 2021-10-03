@@ -1,9 +1,7 @@
 extends Camera2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const FRICTION = 0.3
+const MAX_SPEED = 75
 onready var _context = get_node("/root/Orchestrator")
 var player_ref = null
 
@@ -11,11 +9,8 @@ var player_ref = null
 func _ready():
 	player_ref = _context.get_player()
 	position = player_ref.position
-	
+
 func _process(_delta):
-	position = _context.player_ref.position
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	var new_pos_x = lerp(position.x, player_ref.position.x, FRICTION)
+	var new_pos_y = lerp(position.y, player_ref.position.y, FRICTION)
+	position = Vector2(new_pos_x, new_pos_y)

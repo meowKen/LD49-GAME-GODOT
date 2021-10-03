@@ -1,6 +1,8 @@
 tool
 extends KinematicBody2D
 
+class_name EmitGreen
+
 const FLOOR_NORMAL = Vector2(0, -1)
 const MAX_SPEED = 200
 const ACCELERATION = 0.05
