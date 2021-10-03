@@ -10,10 +10,10 @@
 position = Vector2( 158.428, 92.4037 )
 
 [node name="Extinguisher" parent="." instance=ExtResource( 2 )]
-position = Vector2( 264.259, 100.124 )
+position = Vector2( 272.763, 102.959 )
 
 [node name="Extinguisher2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 243.327, 130.598 )
+position = Vector2( 203.639, 139.732 )
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
